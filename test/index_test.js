@@ -75,8 +75,6 @@ describe('.toFormInputs', () => {
     const data = { id: 1 };
     const result = toFormInputs(validSchema.sheep, data);
 
-    console.log(result);
-
     result.id.value.must.be(1);
   });
 
