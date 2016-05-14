@@ -1,0 +1,55 @@
+{
+  "sheep": {
+    "type": "object",
+    "name": "sheep",
+    "pluralName": "sheep",
+    "properties": {
+      "id": {
+        "type": "string",
+        "faker": "random.uuid"
+      },
+      "name": {
+        "type": "string",
+        "faker": "name.findName"
+      },
+      "attributes": {
+        "color": {
+          "type": "string",
+          "pattern": "white|black"
+        },
+        "size": {
+          "type": "string",
+          "pattern": "small|big"
+        }
+      }
+    },
+    "required": ["name"]
+  },
+  "wolf": {
+    "type": "object",
+    "name": "wolf",
+    "pluralName": "wolves",
+    "properties": {
+      "id": {
+        "type": "string",
+        "faker": "random.uuid"
+      },
+      "name": {
+        "type": "string",
+        "faker": "name.findName"
+      },
+      "sheep": {
+        "type": "string",
+        "faker": "random.uuid",
+        "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
+      }
+    },
+    "links": [
+      {
+        "rel": "sheep",
+        "href": "/sheep/{sheep}"
+      }
+    ],
+    "required": ["name"]
+  }
+}
