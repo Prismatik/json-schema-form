@@ -10,6 +10,8 @@ npm i git+https@github.com:Prismatik/json-schema-form.git
 
 ## Usage
 
+### .mapData(schema: Object, data: Object)
+
 To map a data object against your schema use `mapData`.
 
 - Fields that *do* exist in `schema` but are not supplied in `data` will return
@@ -50,7 +52,12 @@ mapData(schema, data)
 // }
 ```
 
+### .toFormInputs(schema: Object, [data: Object])
+
 To create objects that use HTML form input attributes from your schema:
+
+- `data` is optional.  If supplied it will map the value of the field to
+`value`.
 
 ```javascript
 import { toFormInputs } from 'json-schema-form'
